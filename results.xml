@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataFlowResults FileFormatVersion="102" TerminationState="Success">
+    <Results>
+        <Result>
+            <Sink
+                Statement="$r3 = virtualinvoke $r3.&lt;java.lang.String: java.lang.String replace(java.lang.CharSequence,java.lang.CharSequence)&gt;(r4, r5)"
+                Method="&lt;com.tado.android.requests.Request: void setCredentialsToFormData(com.tado.android.utils.FormParams)&gt;">
+                <AccessPath Value="$r3" Type="java.lang.String" TaintSubFields="true"></AccessPath>
+            </Sink>
+            <Sources>
+                <Source
+                    Statement="$r5 = virtualinvoke $r0.&lt;com.tado.android.LoginActivity: android.view.View findViewById(int)&gt;(2131755331)"
+                    Category="Password Input"
+                    Method="&lt;com.tado.android.LoginActivity: void onCreate(android.os.Bundle)&gt;">
+                    <AccessPath Value="$r5" Type="android.widget.TextView" TaintSubFields="true">
+                        <Fields>
+                            <Field
+                                Value="&lt;android.widget.TextView: android.text.Editable content&gt;"
+                                Type="android.text.Editable"></Field>
+                        </Fields>
+                    </AccessPath>
+                </Source>
+            </Sources>
+        </Result>
+        <Result>
+            <Sink
+                Statement="staticinvoke &lt;android.util.Log: int d(java.lang.String,java.lang.String)&gt;($r6, $r8)"
+                Method="&lt;com.tado.android.utils.LocationCluster: void updateCentroid()&gt;">
+                <AccessPath Value="$r8" Type="java.lang.String" TaintSubFields="true"></AccessPath>
+            </Sink>
+            <Sources>
+                <Source
+                    Statement="$d1 = virtualinvoke $r4.&lt;android.location.Location: double getLongitude()&gt;()"
+                    Method="&lt;com.tado.android.utils.LocationCluster: void updateCentroid()&gt;">
+                    <AccessPath Value="$d1" Type="double" TaintSubFields="true"></AccessPath>
+                </Source>
+                <Source
+                    Statement="$d1 = virtualinvoke $r4.&lt;android.location.Location: double getLatitude()&gt;()"
+                    Method="&lt;com.tado.android.utils.LocationCluster: void updateCentroid()&gt;">
+                    <AccessPath Value="$d1" Type="double" TaintSubFields="true"></AccessPath>
+                </Source>
+            </Sources>
+        </Result>
+        <Result>
+            <Sink
+                Statement="$r7 = virtualinvoke $r7.&lt;java.lang.String: java.lang.String replace(java.lang.CharSequence,java.lang.CharSequence)&gt;(r9, r10)"
+                Method="&lt;com.tado.android.requests.Request: java.lang.String getNewApiUrlWithoutHome(java.lang.String,java.lang.String,java.lang.String)&gt;">
+                <AccessPath Value="$r7" Type="java.lang.String" TaintSubFields="true"></AccessPath>
+            </Sink>
+            <Sources>
+                <Source
+                    Statement="$r5 = virtualinvoke $r0.&lt;com.tado.android.LoginActivity: android.view.View findViewById(int)&gt;(2131755331)"
+                    Category="Password Input"
+                    Method="&lt;com.tado.android.LoginActivity: void onCreate(android.os.Bundle)&gt;">
+                    <AccessPath Value="$r5" Type="android.widget.TextView" TaintSubFields="true">
+                        <Fields>
+                            <Field
+                                Value="&lt;android.widget.TextView: android.text.Editable content&gt;"
+                                Type="android.text.Editable"></Field>
+                        </Fields>
+                    </AccessPath>
+                </Source>
+            </Sources>
+        </Result>
+        <Result>
+            <Sink
+                Statement="interfaceinvoke $r1.&lt;android.content.SharedPreferences$Editor: android.content.SharedPreferences$Editor putLong(java.lang.String,long)&gt;($r0, $l0)"
+                Method="&lt;com.tado.android.utils.UserConfig: void putLong(java.lang.String,long)&gt;">
+                <AccessPath Value="$l0" Type="long" TaintSubFields="true"></AccessPath>
+            </Sink>
+            <Sources>
+                <Source
+                    Statement="$d0 = virtualinvoke $r0.&lt;android.location.Location: double getLongitude()&gt;()"
+                    Method="&lt;com.tado.android.utils.LocationUtil: void storeLastSeenLocation(android.location.Location)&gt;">
+                    <AccessPath Value="$d0" Type="double" TaintSubFields="true"></AccessPath>
+                </Source>
+                <Source
+                    Statement="$d0 = virtualinvoke $r0.&lt;android.location.Location: double getLatitude()&gt;()"
+                    Method="&lt;com.tado.android.utils.LocationUtil: void storeLastSeenLocation(android.location.Location)&gt;">
+                    <AccessPath Value="$d0" Type="double" TaintSubFields="true"></AccessPath>
+                </Source>
+            </Sources>
+        </Result>
+        <Result>
+            <Sink
+                Statement="virtualinvoke $r13.&lt;java.io.OutputStream: void write(byte[])&gt;($r7)"
+                Method="&lt;com.tado.android.client.APICall: com.tado.android.responses.Response doInBackground(java.lang.Void[])&gt;">
+                <AccessPath Value="$r7" Type="byte[]" TaintSubFields="true"></AccessPath>
+            </Sink>
+            <Sources>
+                <Source
+                    Statement="$r1 = virtualinvoke $r0.&lt;com.tado.android.installation.CreateAccountActivity: android.view.View findViewById(int)&gt;(2131755203)"
+                    Category="Password Input"
+                    Method="&lt;com.tado.android.installation.CreateAccountActivity: void proceedClick(android.view.View)&gt;">
+                    <AccessPath Value="$r1" Type="android.widget.TextView" TaintSubFields="true">
+                        <Fields>
+                            <Field
+                                Value="&lt;android.widget.TextView: android.text.Editable content&gt;"
+                                Type="android.text.Editable"></Field>
+                        </Fields>
+                    </AccessPath>
+                </Source>
+            </Sources>
+        </Result>
+        <Result>
+            <Sink
+                Statement="virtualinvoke $r0.&lt;com.tado.android.installation.CreateHomeEnterAddressActivity: void startActivityForResult(android.content.Intent,int)&gt;($r2, 1)"
+                Method="&lt;com.tado.android.installation.CreateHomeEnterAddressActivity: void selectCountry(android.view.View)&gt;">
+                <AccessPath Value="$r0"
+                    Type="com.tado.android.installation.CreateHomeEnterAddressActivity"
+                    TaintSubFields="true">
+                    <Fields>
+                        <Field
+                            Value="&lt;com.tado.android.installation.CreateHomeEnterAddressActivity: android.content.Intent intent&gt;"
+                            Type="android.content.Intent"></Field>
+                        <Field
+                            Value="&lt;android.content.Intent: java.lang.Object[] extraValues&gt;"
+                            Type="java.lang.String"></Field>
+                        <Field Value="&lt;java.lang.String: char[] content&gt;" Type="double"></Field>
+                    </Fields>
+                </AccessPath>
+            </Sink>
+            <Sources>
+                <Source
+                    Statement="$d0 = virtualinvoke $r12.&lt;android.location.Location: double getLatitude()&gt;()"
+                    Method="&lt;com.tado.android.installation.CreateHomeEnterAddressActivity: void proceedClick(android.view.View)&gt;">
+                    <AccessPath Value="$d0" Type="double" TaintSubFields="true"></AccessPath>
+                </Source>
+            </Sources>
+        </Result>
+        <Result>
+            <Sink
+                Statement="$r1 = virtualinvoke $r0.&lt;com.tado.android.location.LocationPostService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)&gt;(null, $r16)"
+                Method="&lt;com.tado.android.location.LocationPostService: void onHandleIntent(android.content.Intent)&gt;">
+                <AccessPath Value="$r0" Type="com.tado.android.location.LocationPostService"
+                    TaintSubFields="true">
+                    <Fields>
+                        <Field
+                            Value="&lt;com.tado.android.location.LocationPostService: com.tado.android.utils.GeolocationLogEntry mGeolocationLogEntry&gt;"
+                            Type="com.tado.android.utils.GeolocationLogEntry"></Field>
+                        <Field
+                            Value="&lt;com.tado.android.utils.GeolocationLogEntry: double mLongitude&gt;"
+                            Type="double"></Field>
+                    </Fields>
+                </AccessPath>
+            </Sink>
+            <Sources>
+                <Source
+                    Statement="$d0 = virtualinvoke $r0.&lt;android.location.Location: double getLongitude()&gt;()"
+                    Method="&lt;com.tado.android.utils.GeolocationLogger: com.tado.android.utils.GeolocationLogEntry getGeoLocationEntry(android.location.Location)&gt;">
+                    <AccessPath Value="$d0" Type="double" TaintSubFields="true"></AccessPath>
+                </Source>
+                <Source
+                    Statement="$d0 = virtualinvoke $r0.&lt;android.location.Location: double getLatitude()&gt;()"
+                    Method="&lt;com.tado.android.utils.GeolocationLogger: com.tado.android.utils.GeolocationLogEntry getGeoLocationEntry(android.location.Location)&gt;">
+                    <AccessPath Value="$d0" Type="double" TaintSubFields="true"></AccessPath>
+                </Source>
+            </Sources>
+        </Result>
+        <Result>
+            <Sink
+                Statement="staticinvoke &lt;android.util.Log: int e(java.lang.String,java.lang.String)&gt;($r8, $r2)"
+                Method="&lt;com.tado.android.client.LocalAPICall: com.tado.android.responses.Response doInBackground(java.lang.Void[])&gt;">
+                <AccessPath Value="$r2" Type="java.lang.String" TaintSubFields="true"></AccessPath>
+            </Sink>
+            <Sources>
+                <Source
+                    Statement="$r5 = virtualinvoke $r0.&lt;com.tado.android.LoginActivity: android.view.View findViewById(int)&gt;(2131755329)"
+                    Category="Password Input"
+                    Method="&lt;com.tado.android.LoginActivity: void onCreate(android.os.Bundle)&gt;">
+                    <AccessPath Value="$r5" Type="android.widget.TextView" TaintSubFields="true">
+                        <Fields>
+                            <Field
+                                Value="&lt;android.widget.TextView: android.text.Editable content&gt;"
+                                Type="android.text.Editable"></Field>
+                        </Fields>
+                    </AccessPath>
+                </Source>
+            </Sources>
+        </Result>
+        <Result>
+            <Sink
+                Statement="interfaceinvoke $r2.&lt;android.content.SharedPreferences$Editor: android.content.SharedPreferences$Editor putString(java.lang.String,java.lang.String)&gt;($r0, $r1)"
+                Method="&lt;com.tado.android.utils.UserConfig: void putString(java.lang.String,java.lang.String)&gt;">
+                <AccessPath Value="$r1" Type="java.lang.String" TaintSubFields="true"></AccessPath>
+            </Sink>
+            <Sources>
+                <Source
+                    Statement="$r5 = virtualinvoke $r0.&lt;com.tado.android.LoginActivity: android.view.View findViewById(int)&gt;(2131755329)"
+                    Category="Password Input"
+                    Method="&lt;com.tado.android.LoginActivity: void onCreate(android.os.Bundle)&gt;">
+                    <AccessPath Value="$r5" Type="android.widget.TextView" TaintSubFields="true">
+                        <Fields>
+                            <Field
+                                Value="&lt;android.widget.TextView: android.text.Editable content&gt;"
+                                Type="android.text.Editable"></Field>
+                        </Fields>
+                    </AccessPath>
+                </Source>
+                <Source
+                    Statement="$r5 = virtualinvoke $r0.&lt;com.tado.android.LoginActivity: android.view.View findViewById(int)&gt;(2131755331)"
+                    Category="Password Input"
+                    Method="&lt;com.tado.android.LoginActivity: void onCreate(android.os.Bundle)&gt;">
+                    <AccessPath Value="$r5" Type="android.widget.TextView" TaintSubFields="true">
+                        <Fields>
+                            <Field
+                                Value="&lt;android.widget.TextView: android.text.Editable content&gt;"
+                                Type="android.text.Editable"></Field>
+                        </Fields>
+                    </AccessPath>
+                </Source>
+            </Sources>
+        </Result>
+    </Results>
+    <PerformanceData>
+        <PerformanceEntry Name="CallgraphConstructionSeconds" Value="25"></PerformanceEntry>
+        <PerformanceEntry Name="TaintPropagationSeconds" Value="16"></PerformanceEntry>
+        <PerformanceEntry Name="PathReconstructionSeconds" Value="2"></PerformanceEntry>
+        <PerformanceEntry Name="TotalRuntimeSeconds" Value="51"></PerformanceEntry>
+        <PerformanceEntry Name="MaxMemoryConsumption" Value="293"></PerformanceEntry>
+        <PerformanceEntry Name="SourceCount" Value="22"></PerformanceEntry>
+        <PerformanceEntry Name="SinkCount" Value="187"></PerformanceEntry>
+    </PerformanceData>
+</DataFlowResults>
